@@ -48,7 +48,7 @@ function! s:show_git_diff_impl(hash, vertsplit, opts) abort
     endif
 
     let diff_command = "git diff ".a:opts." ".a:hash."~1 ".a:hash
-    let prefix = has("win32") ? "set LANG=C & " : "LANG=C "
+    let prefix = has("win32") ? "set LANG=C & " : "env LANG=C "
     silent let out = system(prefix.diff_command)
 
     if v:shell_error
